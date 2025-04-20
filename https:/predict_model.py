@@ -9,14 +9,12 @@ def create_dataset(data, step=10):
 
 def predict_next_value(model_path, recent_data):
     model = joblib.load(model_path)
-    X = create_dataset(recent_data[-10:])[0] 
-create_dataset(recent_data[-10:])
- if len(X) == 0:
+    X = create_dataset(recent_data[-10:])
+    if len(X) == 0:
         return None
     prediction = model.predict(X)
     return round(float(prediction[-1]), 
 2)
-
 # Misol uchun test:
 if __name__ == "__main__":
     recent_data = [1.53, 2.44, 1.57, 5.11, 9.56, 2.02, 1.68, 1.13, 1.09, 4.19]
