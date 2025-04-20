@@ -10,7 +10,7 @@ def create_dataset(data, step=10):
 def predict_next_value(model_path, recent_data):
     model = joblib.load(model_path)
     X = create_dataset(recent_data[-10:])[0] 
-  create_dataset(recent_data[-10:])
+create_dataset(recent_data[-10:])
     if len(X) == 0:
         return None
     prediction = model.predict(X)
